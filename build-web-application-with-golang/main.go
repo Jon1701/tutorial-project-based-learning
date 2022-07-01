@@ -1,15 +1,35 @@
 package main
 
+import "fmt"
+
 func main() { 
-	// 8-bit signed integer.
-	var a int8
+	// Go uses the UTF-8 character set.
 
-	// 32-bit signed integer.
-	var b int32
+	var frenchHello string
 
-	// Cannot assign values between these types.
-	c := a+b
+	var emptyString string = ""
 
-	// 64-bit Complex number.
-	var c complex64 = 5 + 5i;
+	no, yes, maybe := "no", "yes", "maybe"
+
+	japaneseHello := "ohayou"
+
+	frenchHello := "bonjour"
+
+	// Strings are immutable.
+	// Cannot change them after creation.
+	var s string = "hello"
+	s[0] = "c" // compile error
+
+	// Convert strings to []byte, modify, then convert back to string.
+	c := []byte(s) 	// convert to []byte 
+	c[0] = 'c' 			// modify
+	s2 := string(c) // convert to string
+
+	fmt.Printf("%s\n", a) // Print string to console.
+
+	// Combine two strings.
+	a := "hello,"
+	b := " world"
+	v := a + b
+	fmt.Printf("%s\n", v)
 }
