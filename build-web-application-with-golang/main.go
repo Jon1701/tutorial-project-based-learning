@@ -1,18 +1,15 @@
 package main
 
-import "fmt"
-
-// We use the type `bool` to define a variable as a boolean type.
-// It can only be `true` or `false`.
-// The default value will be `false`.
-var isActive bool; // global variable.
-
-func test() {
-	var available bool // local variable.
-	valid := false // Shorthand initialization.
-	available = true // Assignment of value to variable.
-}
-
 func main() { 
-	fmt.Println("Hello World")
+	// 8-bit signed integer.
+	var a int8
+
+	// 32-bit signed integer.
+	var b int32
+
+	// Cannot assign values between these types.
+	c := a+b
+
+	// 64-bit Complex number.
+	var c complex64 = 5 + 5i;
 }
