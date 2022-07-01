@@ -1,11 +1,18 @@
-// Source file belongs to the `main` package.
 package main
 
-// You need an entry function called `main`.
-func main() { 
-	// Define constants as follows:
-	const constantName = value
+import "fmt"
 
-	// Define constant `Pi` with type `float32` with initial value `3.141592654`.
-	const Pi float32 = 3.1415926
+// We use the type `bool` to define a variable as a boolean type.
+// It can only be `true` or `false`.
+// The default value will be `false`.
+var isActive bool; // global variable.
+
+func test() {
+	var available bool // local variable.
+	valid := false // Shorthand initialization.
+	available = true // Assignment of value to variable.
+}
+
+func main() { 
+	fmt.Println("Hello World")
 }
