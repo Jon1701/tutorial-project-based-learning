@@ -1,35 +1,19 @@
 package main
 
-// Basic form
-import "fmt"
-import "os"
-
-// Group form
-import (
-	"fmt"
-	"os"
-)
-
 func main() {
- 	// Basic form
-	const i = 100
-	const pi = 3.1415
-	const prefix = "Go_"
-
-	var i int
-	var pi float
-	var prefix string
-
-	// Group form.
-	const(
-		i = 100
-		pi = 3.1415
-		prefix = "Go_"
+	// Keyword `iota` makes an `enum` which begins with 0.
+	const (
+		x = iota // x = 0
+		y = iota // y = 1
+		z = iota // z = 2
+		w // If there is no expression after the constant's name, it uses the
+		  // previous expression, which is `iota`, so w = 3
 	)
 
-	var(
-		i int
-		pi float32
-		prefix string
+	const v = iota // Once `iota` meets the keyword `const`, it resets to 0
+								 // v = 0
+
+	const (
+		e,f,g = iota, iota, iota // Since all on same line, they all have value 0.
 	)
 }
