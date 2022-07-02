@@ -1,10 +1,35 @@
 package main
 
+// Basic form
+import "fmt"
+import "os"
+
+// Group form
 import (
-	"errors"
+	"fmt"
+	"os"
 )
 
-func main() { 
-	// Go has one `error` type for dealing with error messages.
-	err := errors.New("this is an error message")
+func main() {
+ 	// Basic form
+	const i = 100
+	const pi = 3.1415
+	const prefix = "Go_"
+
+	var i int
+	var pi float
+	var prefix string
+
+	// Group form.
+	const(
+		i = 100
+		pi = 3.1415
+		prefix = "Go_"
+	)
+
+	var(
+		i int
+		pi float32
+		prefix string
+	)
 }
