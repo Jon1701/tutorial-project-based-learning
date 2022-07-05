@@ -2,38 +2,29 @@ package main
 
 import (
 	"fmt"
-	"math"
+	"log"
+	"net/http"
+	"strings"
 )
 
-type Rectangle struct {
-	width float64
-	height	float64
-}
+func sayhelloName(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
+	fmt.Println(r.Form) // Print form information
+	fmt.Println("path", r.URL.Path)
+	fmt.Println("scheme", r.URL.Scheme)
+	fmt.Println(r.Form["url_long"])
+	for k, v := range r.Form {
+		fmt.Println("key: ", k)
+		fmt.Println("val: ", strings.Join(v, ""))
+	}
 
-type Circle struct {
-	radius float64
-}
-
-// Method.
-func (c Circle) Area() float64 {
-	return c.radius * c.radius * math.Pi
-}
-
-// Method
-func (r Rectangle) Area() float64 {
-	return r.width * r.height
+	fmt.Fprintf(w, "Hello astaxie")
 }
 
 func main() {
-	c1 := Circle{10}
-	c2 := Circle{25}
-	r1 := Rectangle{12, 2}
-	r2 := Rectangle{9, 4}
-
-	fmt.Printf("The area of r1 is: %f\n", r1.Area())
-	fmt.Printf("The area of r2 is: %f\n", r2.Area())
-	fmt.Printf("The area of c1 is: %f\n", c1.Area())
-	fmt.Printf("The area of c2 is: %f\n", c2.Area())
-	
-	
+	http.HandleFunc("/", sayhelloName)
+	err := http.ListenAndServe(":9090", nil)
+	if err != nil {
+		log.Fatal("ListenAndServe: ", err)
+	}
 }
