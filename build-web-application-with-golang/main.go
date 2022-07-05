@@ -2,34 +2,40 @@ package main
 
 import "fmt"
 
-func Add(a int) int {
-	a = a + 1
-	return a;
+type Person struct {
+	name string
+	age int
 }
 
-func AddByPointer(a *int) int {
-	*a = *a + 1
-	return *a
+func isOlder(p1 Person, p2 Person) (Person, int) {
+	if (p1.age > p2.age) {
+		return p1, p1.age - p2.age
+	}
+
+	return p2, p2.age - p1.age;
 }
 
 func main() {
-	x := 3
+	var p Person // p is of type Person.
 
-	fmt.Println("========== Pass by value =========")
+	p.name = "Astaxie"
+	p.age = 25
 
-	fmt.Printf("x = %d\n", x)
+	fmt.Printf("The person's name is: %s\n", p.name)
+	fmt.Printf("The person's age is: %d\n", p.age)
 
-	x1 := Add(x)
+	var tom Person
+	tom.name = "Tom"
+	tom.age = 18
+	bob := Person{age: 25, name: "Bob"}
+	paul := Person{"Paul", 43}
 
-	fmt.Printf("x1 = %d\n", x1)
-	fmt.Printf("x = %d\n", x)
+	tb_Older, tb_diff := isOlder(tom, bob);
+	tp_Older, tp_diff := isOlder(tom, paul)
+	bp_Older, bp_diff := isOlder(bob, paul)
 
-	fmt.Println("========== Pass by reference =========")
-
-	fmt.Printf("x = %d\n", x)
-
-	x2 := AddByPointer(&x);
-
-	fmt.Printf("x2 = %d\n", x2)
-	fmt.Printf("x = %d\n", x)
+	fmt.Printf("Between %s and %s, %s is older by %d years\n", tom.name, bob.name, tb_Older.name, tb_diff);
+	fmt.Printf("Between %s and %s, %s is older by %d years\n", tom.name, paul.name, tp_Older.name, tp_diff);
+	fmt.Printf("Between %s and %s, %s is older by %d years\n", bob.name, paul.name, bp_Older.name, bp_diff);
+	
 }
