@@ -3,18 +3,29 @@ package main
 import "fmt"
 
 func main() {
-	i := 10;
-	switch i {
-	case 1:
-		fmt.Println("i is 1");
+	integer := 6
+	switch integer {
+	case 4:
+		fmt.Println("integer <= 4")
+		fallthrough;
+	
+	case 5:
+		fmt.Println("integer <= 5");
+		fallthrough;
 
-	case 2,3,4:
-		fmt.Println("i is either 2, 3, or 4");
+	case 6:
+		fmt.Println("integer <= 6");
+		fallthrough;
 
-	case 10:
-		fmt.Println("i is 10");
+	case 7:
+		fmt.Println("integer <= 7");
+		fallthrough;
+
+	case 8:
+		fmt.Println("integer <= 8");
+		fallthrough;
 
 	default:
-		fmt.Println("some other integer")
+		fmt.Println("default case")
 	}
 }
