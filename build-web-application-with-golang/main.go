@@ -2,12 +2,34 @@ package main
 
 import "fmt"
 
-func VariadicExample(num ...int) {
-	for index, item := range num {
-		fmt.Printf("Index is %d and Item is %d\n", index, item);
-	} 
+func Add(a int) int {
+	a = a + 1
+	return a;
+}
+
+func AddByPointer(a *int) int {
+	*a = *a + 1
+	return *a
 }
 
 func main() {
-	VariadicExample(1,2,3,4,5,6,7,8,9,10)
+	x := 3
+
+	fmt.Println("========== Pass by value =========")
+
+	fmt.Printf("x = %d\n", x)
+
+	x1 := Add(x)
+
+	fmt.Printf("x1 = %d\n", x1)
+	fmt.Printf("x = %d\n", x)
+
+	fmt.Println("========== Pass by reference =========")
+
+	fmt.Printf("x = %d\n", x)
+
+	x2 := AddByPointer(&x);
+
+	fmt.Printf("x2 = %d\n", x2)
+	fmt.Printf("x = %d\n", x)
 }
