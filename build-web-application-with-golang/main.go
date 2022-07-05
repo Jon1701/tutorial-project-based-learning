@@ -2,16 +2,12 @@ package main
 
 import "fmt"
 
-func SumAndProduct(a int, b int) (int, int) {
-	return a+b, a*b
+func VariadicExample(num ...int) {
+	for index, item := range num {
+		fmt.Printf("Index is %d and Item is %d\n", index, item);
+	} 
 }
 
 func main() {
-	x := 3;
-	y := 4;
-
-	xPLUSy, xTIMESy := SumAndProduct(x, y);
-
-	fmt.Printf("%d + %d = %d\n", x, y, xPLUSy);
-	fmt.Printf("%d * %d = %d\n", x, y, xTIMESy);
+	VariadicExample(1,2,3,4,5,6,7,8,9,10)
 }
