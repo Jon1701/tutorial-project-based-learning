@@ -2,23 +2,16 @@ package main
 
 import "fmt"
 
-// Return the greater value between a and b.
-func max(a int, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+func SumAndProduct(a int, b int) (int, int) {
+	return a+b, a*b
 }
 
 func main() {
-	x := 3
-	y := 4
-	z := 5
+	x := 3;
+	y := 4;
 
-	max_xy := max(x, y);
-	max_xz := max(x, z);
+	xPLUSy, xTIMESy := SumAndProduct(x, y);
 
-	fmt.Printf("max(%d, %d) = %d\n", x, y, max_xy);
-	fmt.Printf("max(%d, %d) = %d\n", x, z, max_xz);
-	fmt.Printf("max(%d, %d) = %d\n", y, z, max(y,z));
+	fmt.Printf("%d + %d = %d\n", x, y, xPLUSy);
+	fmt.Printf("%d * %d = %d\n", x, y, xTIMESy);
 }
