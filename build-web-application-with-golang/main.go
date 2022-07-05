@@ -3,10 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	i := 0
-
-	Here:
-		fmt.Println(i)
-		i++
-		goto Here
+	sum := 0;
+	for i:=0; i<10; i++ {
+		sum += i;
+	}
+	fmt.Println("sum is equal to: ", sum)
 }
