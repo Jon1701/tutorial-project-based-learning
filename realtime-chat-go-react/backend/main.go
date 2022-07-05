@@ -1,7 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
+
+func HandleSimpleServer(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Simple Server")
+}
+
+func setupRoutes() {
+	http.HandleFunc("/", HandleSimpleServer)
+}
 
 func main() {
-	fmt.Println("Chat App v0.01")
+	setupRoutes()
+	http.ListenAndServe(":8080", nil)
 }
