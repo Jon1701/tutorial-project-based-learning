@@ -2,30 +2,23 @@ package main
 
 import "fmt"
 
-func main() {
-	integer := 6
-	switch integer {
-	case 4:
-		fmt.Println("integer <= 4")
-		fallthrough;
-	
-	case 5:
-		fmt.Println("integer <= 5");
-		fallthrough;
-
-	case 6:
-		fmt.Println("integer <= 6");
-		fallthrough;
-
-	case 7:
-		fmt.Println("integer <= 7");
-		fallthrough;
-
-	case 8:
-		fmt.Println("integer <= 8");
-		fallthrough;
-
-	default:
-		fmt.Println("default case")
+// Return the greater value between a and b.
+func max(a int, b int) int {
+	if a > b {
+		return a
 	}
+	return b
+}
+
+func main() {
+	x := 3
+	y := 4
+	z := 5
+
+	max_xy := max(x, y);
+	max_xz := max(x, z);
+
+	fmt.Printf("max(%d, %d) = %d\n", x, y, max_xy);
+	fmt.Printf("max(%d, %d) = %d\n", x, z, max_xz);
+	fmt.Printf("max(%d, %d) = %d\n", y, z, max(y,z));
 }
