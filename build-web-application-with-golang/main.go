@@ -3,9 +3,18 @@ package main
 import "fmt"
 
 func main() {
-	sum := 0;
-	for i:=0; i<10; i++ {
-		sum += i;
+	i := 10;
+	switch i {
+	case 1:
+		fmt.Println("i is 1");
+
+	case 2,3,4:
+		fmt.Println("i is either 2, 3, or 4");
+
+	case 10:
+		fmt.Println("i is 10");
+
+	default:
+		fmt.Println("some other integer")
 	}
-	fmt.Println("sum is equal to: ", sum)
 }
