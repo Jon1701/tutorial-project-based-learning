@@ -1,28 +1,39 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
-type Human struct {
-	name string
-	age int
-	weight int
+type Rectangle struct {
+	width float64
+	height	float64
 }
 
-type Student struct {
-	Human // embedded field
-	specialty string
+type Circle struct {
+	radius float64
+}
+
+// Method.
+func (c Circle) Area() float64 {
+	return c.radius * c.radius * math.Pi
+}
+
+// Method
+func (r Rectangle) Area() float64 {
+	return r.width * r.height
 }
 
 func main() {
-	mark := Student{Human{"Mark", 25, 120}, "Computer Science"}
+	c1 := Circle{10}
+	c2 := Circle{25}
+	r1 := Rectangle{12, 2}
+	r2 := Rectangle{9, 4}
 
-	fmt.Printf("Name is: %s\n", mark.name);
-	fmt.Printf("Age is: %d\n", mark.age);
-	fmt.Printf("Weight is: %d\n", mark.weight);
-	fmt.Printf("Specialty is: %s\n", mark.specialty)
-
-	mark.specialty = "AI"
-	fmt.Println("Mark changed his specialty")
-	fmt.Printf("Specialty is: %s\n", mark.specialty)
-
+	fmt.Printf("The area of r1 is: %f\n", r1.Area())
+	fmt.Printf("The area of r2 is: %f\n", r2.Area())
+	fmt.Printf("The area of c1 is: %f\n", c1.Area())
+	fmt.Printf("The area of c2 is: %f\n", c2.Area())
+	
+	
 }
